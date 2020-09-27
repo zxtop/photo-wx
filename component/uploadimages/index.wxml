@@ -1,0 +1,28 @@
+<view class="content">
+  <view class="img-box">
+    <view class="img-list">
+
+      <block wx:for="{{detailPics}}" wx:key="index">
+        <view class="img-item">
+          <span class="{{isDel?'del_span':''}}" bindtap="delImg" data-index="{{item.index}}"></span>
+          <image class="img-age" src="{{item.path}}" data-index="{{item.index}}"></image>
+        </view>
+      </block>
+
+      <view wx:if="{{isShow}}" class="chooseimg" bindtap="uploadDetailImage">
+        <view class="uploader_input_box"></view>
+      </view>
+
+      <view class="tips" wx:if="{{isShow}}">
+        点击上传
+      </view>
+
+    </view>
+
+    <button wx:if="{{!isShow}}" style="margin-top:100rpx" bindtap="uploadClound">上传服务器</button>
+    <button wx:if="{{!isShow}}" style="margin-top:50rpx" bindtap="click_del">{{delString}}</button>
+    
+
+  </view>
+
+</view>
